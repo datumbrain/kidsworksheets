@@ -300,7 +300,6 @@
       function updateNames() {
         const name = document.getElementById('childName').value.trim();
         if (!name) {
-          alert('Please enter a name!');
           return;
         }
         
@@ -316,7 +315,21 @@
           msg.style.display = 'block';
         });
         
-        alert(`Great! The worksheets are now personalized for ${name}! 🎉`);
+        // Visual feedback - briefly highlight the button
+        const button = document.querySelector('button[onclick="updateNames()"]');
+        const originalText = button.innerHTML;
+        button.innerHTML = '✅ Added!';
+        button.style.backgroundColor = '#28a745';
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.backgroundColor = '#ffc107';
+        }, 1500);
+      }
+      
+      function handleEnterKey(event) {
+        if (event.key === 'Enter') {
+          updateNames();
+        }
       }
     </script>
   </head>
@@ -327,8 +340,8 @@
         <label for="childName" style="font-size: 18px; font-weight: bold; color: #856404;">
           Enter your child's name: 
         </label>
-        <input type="text" id="childName" placeholder="e.g., Emma" style="font-size: 18px; padding: 8px 15px; border-radius: 10px; border: 2px solid #ffc107; margin-left: 10px; font-family: inherit;">
-        <button onclick="updateNames()" style="background-color: #ffc107; color: #856404; margin-left: 10px;">✨ Add Name</button>
+        <input type="text" id="childName" placeholder="e.g., Emma" style="font-size: 18px; padding: 8px 15px; border-radius: 10px; border: 2px solid #ffc107; margin-left: 10px; font-family: inherit;" onkeypress="handleEnterKey(event)">
+        <button onclick="updateNames()" style="background-color: #ffc107; color: #856404; margin-left: 10px; padding: 8px 12px; font-size: 14px; border-radius: 8px; border: none; font-family: inherit; cursor: pointer;">✨ Add Name</button>
       </div>
       <p>
         Click the button below to print all worksheets. Each worksheet will
