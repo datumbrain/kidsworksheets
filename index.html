@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Worksheets</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .page {
+          width: 210mm;
+          height: 297mm;
+          margin: 0;
+          padding: 15mm;
+          page-break-after: always;
+          page-break-inside: avoid;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+
+        .page:last-child {
+          page-break-after: auto;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+
+      @media screen {
+        body {
+          margin: 0;
+          padding: 20px;
+          background-color: #f0f0f0;
+        }
+
+        .page {
+          width: 210mm;
+          height: 297mm;
+          background: white;
+          margin: 0 auto 20px;
+          padding: 15mm;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: #4caf50;
+        text-align: center;
+        font-size: 24px;
+        margin: 0 0 15px 0;
+      }
+
+      h2 {
+        color: #2196f3;
+        font-size: 18px;
+        margin: 15px 0 10px 0;
+      }
+
+      .instructions {
+        background-color: #e3f2fd;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+
+      .problem-row {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        font-size: 20px;
+      }
+
+      .problem {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .answer-box {
+        width: 50px;
+        height: 35px;
+        border: 2px solid #2196f3;
+        border-radius: 5px;
+        display: inline-block;
+      }
+
+      .number-line {
+        margin: 20px 0;
+        position: relative;
+        height: 50px;
+      }
+
+      .number-line-track {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #333;
+      }
+
+      .number-mark {
+        position: absolute;
+        top: 18px;
+        width: 2px;
+        height: 15px;
+        background-color: #333;
+      }
+
+      .number-label {
+        position: absolute;
+        top: 35px;
+        font-size: 14px;
+        font-weight: bold;
+        transform: translateX(-50%);
+      }
+
+      .ten-frame {
+        display: inline-grid;
+        grid-template-columns: repeat(5, 35px);
+        grid-template-rows: repeat(2, 35px);
+        gap: 2px;
+        border: 2px solid #333;
+        padding: 2px;
+        margin: 8px 0;
+      }
+
+      .ten-frame-cell {
+        border: 1px solid #666;
+        background-color: #fff;
+      }
+
+      .doubles-card {
+        display: inline-block;
+        width: 100px;
+        height: 60px;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        margin: 8px;
+        text-align: center;
+        line-height: 60px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #e8f5e9;
+      }
+
+      .visual-problem {
+        margin: 15px 0;
+        padding: 10px;
+        border: 2px dashed #999;
+        border-radius: 8px;
+      }
+
+      .objects-container {
+        display: flex;
+        gap: 15px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .object-group {
+        padding: 8px;
+        background-color: #fff9c4;
+        border-radius: 8px;
+        min-width: 60px;
+      }
+
+      .star {
+        display: inline-block;
+        font-size: 24px;
+        margin: 2px;
+      }
+
+      .no-print {
+        text-align: center;
+        margin: 20px;
+        padding: 20px;
+        background-color: #e8f5e9;
+        border-radius: 10px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      p {
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-print">
+      <h2>Math Worksheets for 6-Year-Old</h2>
+      <p>
+        Click the button below to print all worksheets. Each worksheet will
+        print on a separate A4 page.
+      </p>
+      <button onclick="window.print()">🖨️ Print All Worksheets</button>
+    </div>
+
+    <!-- Worksheet 1: Physical Objects Addition -->
+    <div class="page">
+      <h1>Worksheet 1: Let's Add Objects! 🌟</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Count the objects in each group. Then
+        count them all together to find the answer!
+      </div>
+
+      <div class="visual-problem">
+        <h2>Problem 1</h2>
+        <div class="objects-container">
+          <div class="object-group">
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">+</div>
+          <div class="object-group">
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">=</div>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <div class="visual-problem">
+        <h2>Problem 2</h2>
+        <div class="objects-container">
+          <div class="object-group">
+            <span class="star">🍎</span>
+            <span class="star">🍎</span>
+            <span class="star">🍎</span>
+            <span class="star">🍎</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">+</div>
+          <div class="object-group">
+            <span class="star">🍎</span>
+            <span class="star">🍎</span>
+            <span class="star">🍎</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">=</div>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <div class="visual-problem">
+        <h2>Problem 3</h2>
+        <div class="objects-container">
+          <div class="object-group">
+            <span class="star">🔵</span>
+            <span class="star">🔵</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">+</div>
+          <div class="object-group">
+            <span class="star">🔵</span>
+            <span class="star">🔵</span>
+            <span class="star">🔵</span>
+            <span class="star">🔵</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">=</div>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <h2>Draw Your Own!</h2>
+      <div class="visual-problem" style="height: 100px">
+        <p>Draw 3 circles + 4 circles = ____</p>
+      </div>
+    </div>
+
+    <!-- Worksheet 2: Subtraction with Objects -->
+    <div class="page">
+      <h1>Worksheet 2: Taking Away! 🎯</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Cross out the objects we're taking away.
+        Count what's left!
+      </div>
+
+      <div class="visual-problem">
+        <h2>Problem 1: 5 - 2 = ?</h2>
+        <p>Cross out 2 cookies:</p>
+        <div class="objects-container">
+          <div class="object-group">
+            <span class="star">🍪</span>
+            <span class="star">🍪</span>
+            <span class="star">🍪</span>
+            <span class="star">🍪</span>
+            <span class="star">🍪</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">=</div>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <div class="visual-problem">
+        <h2>Problem 2: 7 - 3 = ?</h2>
+        <p>Cross out 3 balloons:</p>
+        <div class="objects-container">
+          <div class="object-group">
+            <span class="star">🎈</span>
+            <span class="star">🎈</span>
+            <span class="star">🎈</span>
+            <span class="star">🎈</span>
+            <span class="star">🎈</span>
+            <span class="star">🎈</span>
+            <span class="star">🎈</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">=</div>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <div class="visual-problem">
+        <h2>Problem 3: 6 - 4 = ?</h2>
+        <p>Cross out 4 cars:</p>
+        <div class="objects-container">
+          <div class="object-group">
+            <span class="star">🚗</span>
+            <span class="star">🚗</span>
+            <span class="star">🚗</span>
+            <span class="star">🚗</span>
+            <span class="star">🚗</span>
+            <span class="star">🚗</span>
+          </div>
+          <div style="font-size: 24px; padding: 8px">=</div>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <h2>Story Problem</h2>
+      <div class="visual-problem" style="background-color: #e8f5e9">
+        <p>
+          You have 8 toy blocks. You give 3 to your friend. How many do you have
+          left?
+        </p>
+        <p>Draw the blocks and cross out 3:</p>
+        <div style="height: 60px"></div>
+        <p>Answer: ______ blocks</p>
+      </div>
+    </div>
+
+    <!-- Worksheet 3: Count On Method -->
+    <div class="page">
+      <h1>Worksheet 3: Count On Method! 🚀</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Circle the bigger number. Put it in your
+        head, then count on!
+      </div>
+
+      <div class="problem-row">
+        <div class="problem">
+          <span>6</span>
+          <span>+</span>
+          <span>2</span>
+          <span>=</span>
+          <div class="answer-box"></div>
+        </div>
+        <div style="color: #666; font-size: 14px; margin-left: 20px">
+          Say: "6... 7, 8"
+        </div>
+      </div>
+
+      <div class="problem-row">
+        <div class="problem">
+          <span>3</span>
+          <span>+</span>
+          <span>7</span>
+          <span>=</span>
+          <div class="answer-box"></div>
+        </div>
+        <div style="color: #666; font-size: 14px; margin-left: 20px">
+          Circle the 7, then count on 3
+        </div>
+      </div>
+
+      <div class="problem-row">
+        <div class="problem">
+          <span>8</span>
+          <span>+</span>
+          <span>3</span>
+          <span>=</span>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <div class="problem-row">
+        <div class="problem">
+          <span>2</span>
+          <span>+</span>
+          <span>9</span>
+          <span>=</span>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <div class="problem-row">
+        <div class="problem">
+          <span>5</span>
+          <span>+</span>
+          <span>4</span>
+          <span>=</span>
+          <div class="answer-box"></div>
+        </div>
+      </div>
+
+      <h2>Practice Box</h2>
+      <div class="visual-problem" style="background-color: #fff9c4">
+        <p><strong>Remember:</strong> Always start with the BIGGER number!</p>
+        <p>Which number would you start with?</p>
+        <div style="display: flex; gap: 30px; margin-top: 15px">
+          <div>4 + 8 → Start with: ____</div>
+          <div>9 + 2 → Start with: ____</div>
+          <div>3 + 6 → Start with: ____</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Worksheet 4: Number Line -->
+    <div class="page">
+      <h1>Worksheet 4: Number Line Jumps! 🦘</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Start at the first number, then jump
+        forward to add!
+      </div>
+
+      <h2>Problem 1: 5 + 3 = ?</h2>
+      <div class="number-line">
+        <div class="number-line-track"></div>
+        <div class="number-mark" style="left: 0%"></div>
+        <div class="number-label" style="left: 0%">0</div>
+        <div class="number-mark" style="left: 10%"></div>
+        <div class="number-label" style="left: 10%">1</div>
+        <div class="number-mark" style="left: 20%"></div>
+        <div class="number-label" style="left: 20%">2</div>
+        <div class="number-mark" style="left: 30%"></div>
+        <div class="number-label" style="left: 30%">3</div>
+        <div class="number-mark" style="left: 40%"></div>
+        <div class="number-label" style="left: 40%">4</div>
+        <div class="number-mark" style="left: 50%"></div>
+        <div class="number-label" style="left: 50%">5</div>
+        <div class="number-mark" style="left: 60%"></div>
+        <div class="number-label" style="left: 60%">6</div>
+        <div class="number-mark" style="left: 70%"></div>
+        <div class="number-label" style="left: 70%">7</div>
+        <div class="number-mark" style="left: 80%"></div>
+        <div class="number-label" style="left: 80%">8</div>
+        <div class="number-mark" style="left: 90%"></div>
+        <div class="number-label" style="left: 90%">9</div>
+        <div class="number-mark" style="left: 100%"></div>
+        <div class="number-label" style="left: 100%">10</div>
+      </div>
+      <p style="margin-top: 30px">
+        Start at 5, jump 3 times. Where do you land? ____
+      </p>
+
+      <h2>Problem 2: 7 - 4 = ?</h2>
+      <div class="number-line">
+        <div class="number-line-track"></div>
+        <div class="number-mark" style="left: 0%"></div>
+        <div class="number-label" style="left: 0%">0</div>
+        <div class="number-mark" style="left: 10%"></div>
+        <div class="number-label" style="left: 10%">1</div>
+        <div class="number-mark" style="left: 20%"></div>
+        <div class="number-label" style="left: 20%">2</div>
+        <div class="number-mark" style="left: 30%"></div>
+        <div class="number-label" style="left: 30%">3</div>
+        <div class="number-mark" style="left: 40%"></div>
+        <div class="number-label" style="left: 40%">4</div>
+        <div class="number-mark" style="left: 50%"></div>
+        <div class="number-label" style="left: 50%">5</div>
+        <div class="number-mark" style="left: 60%"></div>
+        <div class="number-label" style="left: 60%">6</div>
+        <div class="number-mark" style="left: 70%"></div>
+        <div class="number-label" style="left: 70%">7</div>
+        <div class="number-mark" style="left: 80%"></div>
+        <div class="number-label" style="left: 80%">8</div>
+        <div class="number-mark" style="left: 90%"></div>
+        <div class="number-label" style="left: 90%">9</div>
+        <div class="number-mark" style="left: 100%"></div>
+        <div class="number-label" style="left: 100%">10</div>
+      </div>
+      <p style="margin-top: 30px">
+        Start at 7, jump back 4 times. Where do you land? ____
+      </p>
+
+      <h2>Try These!</h2>
+      <div class="visual-problem">
+        <p>Draw arrows to show the jumps:</p>
+        <p>3 + 5 = ____ (Start at 3, jump forward 5)</p>
+        <p>9 - 3 = ____ (Start at 9, jump back 3)</p>
+        <p>4 + 4 = ____ (Start at 4, jump forward 4)</p>
+      </div>
+    </div>
+
+    <!-- Worksheet 5: Doubles -->
+    <div class="page">
+      <h1>Worksheet 5: Doubles Are Fun! 👯</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Learn these doubles by heart! They're
+        like magic numbers!
+      </div>
+
+      <div style="text-align: center">
+        <div class="doubles-card">1 + 1 = ___</div>
+        <div class="doubles-card">2 + 2 = ___</div>
+        <div class="doubles-card">3 + 3 = ___</div>
+        <div class="doubles-card">4 + 4 = ___</div>
+        <div class="doubles-card">5 + 5 = ___</div>
+        <div class="doubles-card">6 + 6 = ___</div>
+        <div class="doubles-card">7 + 7 = ___</div>
+        <div class="doubles-card">8 + 8 = ___</div>
+        <div class="doubles-card">9 + 9 = ___</div>
+        <div class="doubles-card">10 + 10 = ___</div>
+      </div>
+
+      <h2>Doubles Pictures</h2>
+      <div class="visual-problem">
+        <p>Draw pictures to show these doubles:</p>
+        <div style="display: flex; gap: 30px; justify-content: space-around">
+          <div>
+            <p>3 + 3 = 6</p>
+            <p style="font-size: 12px">Draw 3 hearts + 3 hearts</p>
+            <div style="height: 50px; border: 1px dashed #999"></div>
+          </div>
+          <div>
+            <p>4 + 4 = 8</p>
+            <p style="font-size: 12px">Draw 4 stars + 4 stars</p>
+            <div style="height: 50px; border: 1px dashed #999"></div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Near Doubles (Doubles Plus One)</h2>
+      <div class="visual-problem" style="background-color: #e3f2fd">
+        <p>
+          <strong>Trick:</strong> If you know 5 + 5 = 10, then 5 + 6 is just one
+          more!
+        </p>
+        <div style="margin-top: 15px">
+          <p>6 + 6 = 12, so 6 + 7 = ____</p>
+          <p>7 + 7 = 14, so 7 + 8 = ____</p>
+          <p>4 + 4 = 8, so 4 + 5 = ____</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Worksheet 6: Making 10 -->
+    <div class="page">
+      <h1>Worksheet 6: Making 10! 🔟</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Fill the ten frame to make 10, then add
+        what's left!
+      </div>
+
+      <h2>Fill the Ten Frame</h2>
+      <div class="visual-problem">
+        <p>8 + 5 = ?</p>
+        <p>Step 1: 8 needs ___ more to make 10</p>
+        <div class="ten-frame">
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell" style="background-color: #ffd700"></div>
+          <div class="ten-frame-cell"></div>
+          <div class="ten-frame-cell"></div>
+        </div>
+        <p>Step 2: Take ___ from the 5 to fill the frame</p>
+        <p>Step 3: 10 + ___ = ___</p>
+      </div>
+
+      <div class="visual-problem">
+        <p>7 + 6 = ?</p>
+        <p>Step 1: 7 needs ___ more to make 10</p>
+        <div class="ten-frame">
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell" style="background-color: #4caf50"></div>
+          <div class="ten-frame-cell"></div>
+          <div class="ten-frame-cell"></div>
+          <div class="ten-frame-cell"></div>
+        </div>
+        <p>Step 2: Take ___ from the 6 to fill the frame</p>
+        <p>Step 3: 10 + ___ = ___</p>
+      </div>
+
+      <h2>Practice Making 10</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px">
+        <div class="visual-problem">
+          <p>9 + 4 = ?</p>
+          <p>9 needs ___ to make 10</p>
+          <p>So: 10 + ___ = ___</p>
+        </div>
+        <div class="visual-problem">
+          <p>6 + 7 = ?</p>
+          <p>6 needs ___ to make 10</p>
+          <p>So: 10 + ___ = ___</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Worksheet 7: Mixed Practice -->
+    <div class="page">
+      <h1>Worksheet 7: Let's Practice Everything! 🌈</h1>
+      <div class="instructions">
+        <strong>Instructions:</strong> Use any method you like to solve these
+        problems!
+      </div>
+
+      <h2>Addition Problems</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px">
+        <div class="problem-row">
+          <div class="problem">
+            <span>5 + 3 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>7 + 2 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>4 + 4 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>6 + 5 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>8 + 3 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>9 + 2 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Subtraction Problems</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px">
+        <div class="problem-row">
+          <div class="problem">
+            <span>8 - 3 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>10 - 4 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>7 - 2 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>9 - 5 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>6 - 3 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem">
+            <span>11 - 4 =</span>
+            <div class="answer-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Word Problems</h2>
+      <div class="visual-problem" style="background-color: #fff9c4">
+        <p>
+          1. You have 6 crayons. Your teacher gives you 4 more. How many crayons
+          do you have now?
+        </p>
+        <p style="margin-left: 30px">Answer: _____ crayons</p>
+      </div>
+
+      <div class="visual-problem" style="background-color: #e8f5e9">
+        <p>
+          2. There are 9 birds on a tree. 3 fly away. How many birds are left?
+        </p>
+        <p style="margin-left: 30px">Answer: _____ birds</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px">
+        <h2 style="color: #ffd700">⭐ Great Job! ⭐</h2>
+        <p>You're becoming a math star!</p>
+      </div>
+    </div>
+  </body>
+</html>
