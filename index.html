@@ -184,6 +184,8 @@
         border: 3px dashed #999;
         border-radius: 15px;
         background-color: #fafafa;
+        box-sizing: border-box;
+        overflow: hidden;
       }
 
       .objects-container {
@@ -404,8 +406,9 @@
       </div>
 
       <h2>Draw Your Own!</h2>
-      <div class="visual-problem" style="height: 100px">
-        <p>Draw 3 circles + 4 circles = ____</p>
+      <div class="visual-problem" style="min-height: 120px; display: flex; flex-direction: column;">
+        <p style="margin: 5px 0;">Draw 3 circles + 4 circles = ____</p>
+        <div style="flex: 1; margin: 10px 0; border: 1px dashed #ccc; border-radius: 5px; min-height: 80px;"></div>
       </div>
       <div class="appreciation" style="margin-top: 15px;">
         Excellent work, <span class="child-name">___</span>! Keep counting! 🎉
@@ -497,7 +500,12 @@
           <div class="answer-box"></div>
         </div>
       </div>
+    </div>
 
+    <!-- Worksheet 2 Continued -->
+    <div class="page">
+      <h1>Worksheet 2 (continued): More Subtraction! 🎯</h1>
+      
       <div class="visual-problem">
         <h2>Problem 3: 6 - 4 = ?</h2>
         <p>Cross out 4 cars:</p>
@@ -516,15 +524,23 @@
       </div>
 
       <h2>Story Problem</h2>
-      <div class="visual-problem" style="background-color: #e8f5e9">
-        <p>
+      <div class="visual-problem" style="background-color: #e8f5e9; min-height: 140px; display: flex; flex-direction: column;">
+        <p style="margin: 5px 0;">
           You have 8 toy blocks. You give 3 to your friend. How many do you have
           left?
         </p>
-        <p>Draw the blocks and cross out 3:</p>
-        <div style="height: 60px"></div>
-        <p>Answer: ______ blocks</p>
+        <p style="margin: 5px 0;">Draw the blocks and cross out 3:</p>
+        <div style="flex: 1; margin: 10px 0; border: 1px dashed #ccc; border-radius: 5px; min-height: 60px;"></div>
+        <p style="margin: 5px 0; text-align: center; font-weight: bold;">Answer: ______ blocks</p>
       </div>
+
+      <h2>Draw Your Own Subtraction</h2>
+      <div class="visual-problem" style="background-color: #fff9c4; min-height: 140px; display: flex; flex-direction: column;">
+        <p style="margin: 5px 0;">Draw 9 hearts. Cross out 4. How many are left?</p>
+        <div style="flex: 1; margin: 10px 0; border: 1px dashed #ccc; border-radius: 5px; min-height: 70px;"></div>
+        <p style="margin: 5px 0; text-align: center; font-weight: bold;">9 - 4 = ____</p>
+      </div>
+
       <div class="appreciation" style="margin-top: 15px;">
         Amazing thinking, <span class="child-name">___</span>! You're getting so good at this! 🌈
       </div>
@@ -764,11 +780,13 @@
       </p>
 
       <h2>Try These!</h2>
-      <div class="visual-problem">
-        <p>Draw arrows to show the jumps:</p>
-        <p>3 + 5 = ____ (Start at 3, jump forward 5)</p>
-        <p>9 - 3 = ____ (Start at 9, jump back 3)</p>
-        <p>4 + 4 = ____ (Start at 4, jump forward 4)</p>
+      <div class="visual-problem" style="min-height: 120px;">
+        <p style="margin: 5px 0;">Draw arrows to show the jumps:</p>
+        <div style="margin: 10px 0; padding: 10px; border: 1px dashed #ccc; border-radius: 5px; background-color: white; min-height: 60px;">
+          <p style="margin: 5px 0;">3 + 5 = ____ (Start at 3, jump forward 5)</p>
+          <p style="margin: 5px 0;">9 - 3 = ____ (Start at 9, jump back 3)</p>
+          <p style="margin: 5px 0;">4 + 4 = ____ (Start at 4, jump forward 4)</p>
+        </div>
       </div>
       <div class="appreciation" style="margin-top: 15px;">
         Fantastic jumping, <span class="child-name">___</span>! You're a number line expert! 🎆
@@ -846,17 +864,17 @@
 
       <h2>Doubles Pictures</h2>
       <div class="visual-problem">
-        <p>Draw pictures to show these doubles:</p>
-        <div style="display: flex; gap: 30px; justify-content: space-around">
-          <div>
-            <p>3 + 3 = 6</p>
-            <p style="font-size: 12px">Draw 3 hearts + 3 hearts</p>
-            <div style="height: 50px; border: 1px dashed #999"></div>
+        <p style="margin: 5px 0;">Draw pictures to show these doubles:</p>
+        <div style="display: flex; gap: 20px; justify-content: space-around; margin-top: 10px;">
+          <div style="flex: 1; text-align: center;">
+            <p style="margin: 5px 0; font-weight: bold;">3 + 3 = 6</p>
+            <p style="font-size: 12px; margin: 3px 0;">Draw 3 hearts + 3 hearts</p>
+            <div style="height: 60px; border: 2px dashed #999; border-radius: 5px; margin: 5px 0; background-color: #fafafa;"></div>
           </div>
-          <div>
-            <p>4 + 4 = 8</p>
-            <p style="font-size: 12px">Draw 4 stars + 4 stars</p>
-            <div style="height: 50px; border: 1px dashed #999"></div>
+          <div style="flex: 1; text-align: center;">
+            <p style="margin: 5px 0; font-weight: bold;">4 + 4 = 8</p>
+            <p style="font-size: 12px; margin: 3px 0;">Draw 4 stars + 4 stars</p>
+            <div style="height: 60px; border: 2px dashed #999; border-radius: 5px; margin: 5px 0; background-color: #fafafa;"></div>
           </div>
         </div>
       </div>
@@ -1068,7 +1086,7 @@
         </div>
       </div>
 
-      <h2>Subtraction Problems</h2>
+      <h2>Subtraction Problems (First 3)</h2>
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px">
         <div class="problem-row">
           <div class="problem">
@@ -1088,6 +1106,15 @@
             <div class="answer-box"></div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Worksheet 7 Continued -->
+    <div class="page">
+      <h1>Worksheet 7 (continued): More Practice! 🌈</h1>
+      
+      <h2>More Subtraction Problems</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px">
         <div class="problem-row">
           <div class="problem">
             <span>9 - 5 =</span>
@@ -1122,6 +1149,14 @@
           2. There are 9 birds on a tree. 3 fly away. How many birds are left?
         </p>
         <p style="margin-left: 30px">Answer: _____ birds</p>
+      </div>
+
+      <h2>Challenge Problem</h2>
+      <div class="visual-problem" style="background-color: #e3f2fd">
+        <p>
+          3. Emma has 5 stickers. She finds 3 more in her bag. Then she gives 2 stickers to her brother. How many stickers does Emma have now?
+        </p>
+        <p style="margin-left: 30px">Answer: _____ stickers</p>
       </div>
 
       <div style="text-align: center; margin-top: 30px">
