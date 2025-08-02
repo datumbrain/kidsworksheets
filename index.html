@@ -28,7 +28,7 @@
         }
 
         .page:last-child {
-          page-break-after: auto;
+          page-break-after: avoid;
         }
 
         .no-print {
@@ -61,35 +61,41 @@
       }
 
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Marker Felt", cursive;
+        letter-spacing: 0.5px;
       }
 
       h1 {
         color: #4caf50;
         text-align: center;
-        font-size: 24px;
+        font-size: 28px;
         margin: 0 0 15px 0;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
       }
 
       h2 {
         color: #2196f3;
-        font-size: 18px;
+        font-size: 20px;
         margin: 15px 0 10px 0;
+        font-weight: bold;
       }
 
       .instructions {
         background-color: #e3f2fd;
         padding: 10px;
-        border-radius: 8px;
+        border-radius: 12px;
         margin-bottom: 15px;
-        font-size: 14px;
+        font-size: 16px;
+        border: 2px solid #bbdefb;
       }
 
       .problem-row {
         display: flex;
         align-items: center;
         margin: 15px 0;
-        font-size: 20px;
+        font-size: 24px;
+        font-weight: bold;
       }
 
       .problem {
@@ -100,11 +106,12 @@
       }
 
       .answer-box {
-        width: 50px;
-        height: 35px;
-        border: 2px solid #2196f3;
-        border-radius: 5px;
+        width: 55px;
+        height: 40px;
+        border: 3px solid #2196f3;
+        border-radius: 8px;
         display: inline-block;
+        background-color: #f0f8ff;
       }
 
       .number-line {
@@ -140,38 +147,43 @@
 
       .ten-frame {
         display: inline-grid;
-        grid-template-columns: repeat(5, 35px);
-        grid-template-rows: repeat(2, 35px);
-        gap: 2px;
-        border: 2px solid #333;
-        padding: 2px;
+        grid-template-columns: repeat(5, 40px);
+        grid-template-rows: repeat(2, 40px);
+        gap: 3px;
+        border: 3px solid #ff6b6b;
+        border-radius: 8px;
+        padding: 4px;
         margin: 8px 0;
+        background-color: #ffe0e0;
       }
 
       .ten-frame-cell {
-        border: 1px solid #666;
+        border: 2px solid #ff9999;
         background-color: #fff;
+        border-radius: 4px;
       }
 
       .doubles-card {
         display: inline-block;
-        width: 100px;
-        height: 60px;
-        border: 2px solid #4caf50;
-        border-radius: 8px;
+        width: 110px;
+        height: 70px;
+        border: 3px solid #4caf50;
+        border-radius: 12px;
         margin: 8px;
         text-align: center;
-        line-height: 60px;
-        font-size: 20px;
+        line-height: 70px;
+        font-size: 22px;
         font-weight: bold;
         background-color: #e8f5e9;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
       }
 
       .visual-problem {
         margin: 15px 0;
-        padding: 10px;
-        border: 2px dashed #999;
-        border-radius: 8px;
+        padding: 15px;
+        border: 3px dashed #999;
+        border-radius: 15px;
+        background-color: #fafafa;
       }
 
       .objects-container {
@@ -191,8 +203,15 @@
 
       .star {
         display: inline-block;
-        font-size: 24px;
-        margin: 2px;
+        font-size: 30px;
+        margin: 3px;
+        animation: wobble 2s ease-in-out infinite;
+      }
+      
+      @keyframes wobble {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-5deg); }
+        75% { transform: rotate(5deg); }
       }
 
       .no-print {
@@ -208,24 +227,107 @@
         color: white;
         border: none;
         padding: 15px 30px;
-        font-size: 18px;
-        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 15px;
         cursor: pointer;
         margin: 10px;
+        font-family: inherit;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+        transition: all 0.2s;
       }
 
       button:hover {
         background-color: #45a049;
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
 
       p {
         margin: 8px 0;
       }
+
+      /* Teaching method pages specific styles */
+      .teaching-page h1 {
+        font-size: 24px;
+        margin: 0 0 10px 0;
+      }
+
+      .teaching-page h2 {
+        font-size: 17px;
+        margin: 10px 0 8px 0;
+      }
+
+      .teaching-page p {
+        font-size: 14px;
+        line-height: 1.3;
+        margin: 5px 0;
+      }
+
+      .teaching-page .instructions {
+        font-size: 14px;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      .teaching-page div[style*="background-color"] {
+        padding: 10px !important;
+        margin: 8px 0 !important;
+      }
+
+      .appreciation {
+        display: none;
+        background-color: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 15px;
+        padding: 10px;
+        margin: 10px 0;
+        text-align: center;
+        font-size: 16px;
+        color: #856404;
+        font-weight: bold;
+      }
+
+      .child-name {
+        color: #ff6b6b;
+        font-weight: bold;
+      }
     </style>
+    <script>
+      function updateNames() {
+        const name = document.getElementById('childName').value.trim();
+        if (!name) {
+          alert('Please enter a name!');
+          return;
+        }
+        
+        // Update all name placeholders
+        const namePlaceholders = document.querySelectorAll('.child-name');
+        namePlaceholders.forEach(placeholder => {
+          placeholder.textContent = name;
+        });
+        
+        // Show appreciation messages
+        const appreciations = document.querySelectorAll('.appreciation');
+        appreciations.forEach(msg => {
+          msg.style.display = 'block';
+        });
+        
+        alert(`Great! The worksheets are now personalized for ${name}! 🎉`);
+      }
+    </script>
   </head>
   <body>
     <div class="no-print">
       <h2>Math Worksheets for 6-Year-Old</h2>
+      <div style="margin: 20px 0; padding: 20px; background-color: #fff3cd; border-radius: 15px; border: 3px solid #ffc107;">
+        <label for="childName" style="font-size: 18px; font-weight: bold; color: #856404;">
+          Enter your child's name: 
+        </label>
+        <input type="text" id="childName" placeholder="e.g., Emma" style="font-size: 18px; padding: 8px 15px; border-radius: 10px; border: 2px solid #ffc107; margin-left: 10px; font-family: inherit;">
+        <button onclick="updateNames()" style="background-color: #ffc107; color: #856404; margin-left: 10px;">✨ Add Name</button>
+      </div>
       <p>
         Click the button below to print all worksheets. Each worksheet will
         print on a separate A4 page.
@@ -236,6 +338,9 @@
     <!-- Worksheet 1: Physical Objects Addition -->
     <div class="page">
       <h1>Worksheet 1: Let's Add Objects! 🌟</h1>
+      <div class="appreciation">
+        Great job, <span class="child-name">___</span>! You're doing amazing! 🌟
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Count the objects in each group. Then
         count them all together to find the answer!
@@ -302,11 +407,58 @@
       <div class="visual-problem" style="height: 100px">
         <p>Draw 3 circles + 4 circles = ____</p>
       </div>
+      <div class="appreciation" style="margin-top: 15px;">
+        Excellent work, <span class="child-name">___</span>! Keep counting! 🎉
+      </div>
+    </div>
+
+    <!-- Teaching Method 1: How to Add Objects -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 1: How to Count and Add! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Help your child learn to add by counting objects step by step.
+      </div>
+
+      <h2>Step-by-Step Method</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>1. Count the first group:</strong> Point to each object and count out loud: "1, 2, 3"</p>
+        <p><strong>2. Count the second group:</strong> Point to each object: "1, 2"</p>
+        <p><strong>3. Count them all together:</strong> "1, 2, 3, 4, 5"</p>
+      </div>
+
+      <h2>Teaching Tips</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>✓ Use real objects like toys, blocks, or snacks</p>
+        <p>✓ Let your child touch each object as they count</p>
+        <p>✓ Start with small numbers (1-5)</p>
+        <p>✓ Praise every attempt - mistakes are part of learning!</p>
+        <p>✓ Make it fun with colors and different objects</p>
+      </div>
+
+      <h2>Common Mistakes and Solutions</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p><strong>If your child:</strong></p>
+        <p>• Counts too fast → Slow down and point to each object</p>
+        <p>• Skips numbers → Practice counting 1-10 first</p>
+        <p>• Gets confused → Use fewer objects and build up slowly</p>
+        <p>• Loses interest → Take breaks and make it playful</p>
+      </div>
+
+      <h2>Extension Activities</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p>• Use snacks: "2 crackers + 3 crackers = how many?"</p>
+        <p>• Count toys during cleanup time</p>
+        <p>• Use fingers: hold up different amounts and add them</p>
+        <p>• Play with building blocks or LEGO pieces</p>
+      </div>
     </div>
 
     <!-- Worksheet 2: Subtraction with Objects -->
     <div class="page">
       <h1>Worksheet 2: Taking Away! 🎯</h1>
+      <div class="appreciation">
+        You're a math star, <span class="child-name">___</span>! Let's subtract! ⭐
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Cross out the objects we're taking away.
         Count what's left!
@@ -373,11 +525,57 @@
         <div style="height: 60px"></div>
         <p>Answer: ______ blocks</p>
       </div>
+      <div class="appreciation" style="margin-top: 15px;">
+        Amazing thinking, <span class="child-name">___</span>! You're getting so good at this! 🌈
+      </div>
+    </div>
+
+    <!-- Teaching Method 2: How to Subtract Objects -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 2: How to Take Away! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Help your child understand subtraction through crossing out and counting.
+      </div>
+
+      <h2>Step-by-Step Method</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>1. Count all objects first:</strong> "Let's count all the cookies: 1, 2, 3, 4, 5"</p>
+        <p><strong>2. Cross out what we take away:</strong> "We're taking away 2, so let's cross out 2 cookies"</p>
+        <p><strong>3. Count what's left:</strong> "Now let's count what's not crossed out: 1, 2, 3"</p>
+      </div>
+
+      <h2>Teaching Tips</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>✓ Use the word "take away" instead of "minus" for young children</p>
+        <p>✓ Let your child physically remove objects</p>
+        <p>✓ Use crossing out as a visual aid</p>
+        <p>✓ Start with taking away 1 or 2 objects</p>
+        <p>✓ Connect to real situations: "3 cookies, you eat 1..."</p>
+      </div>
+
+      <h2>Real-Life Examples</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p><strong>Make it relatable:</strong></p>
+        <p>• "You have 5 toys, you put 2 away. How many are left?"</p>
+        <p>• "There were 4 birds, 1 flew away. How many are still here?"</p>
+        <p>• "You had 6 stickers, you gave 3 to your friend. How many do you have?"</p>
+      </div>
+
+      <h2>Visual Strategies</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p>• Draw pictures and cross them out</p>
+        <p>• Use different colored pencils for crossing out</p>
+        <p>• Cover objects with your hand instead of crossing out</p>
+        <p>• Use manipulatives like blocks or counting bears</p>
+      </div>
     </div>
 
     <!-- Worksheet 3: Count On Method -->
     <div class="page">
       <h1>Worksheet 3: Count On Method! 🚀</h1>
+      <div class="appreciation">
+        <span class="child-name">___</span>, you're learning so fast! 🚀
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Circle the bigger number. Put it in your
         head, then count on!
@@ -449,11 +647,57 @@
           <div>3 + 6 → Start with: ____</div>
         </div>
       </div>
+      <div class="appreciation" style="margin-top: 15px;">
+        Keep it up, <span class="child-name">___</span>! You're getting smarter every day! 🧠✨
+      </div>
+    </div>
+
+    <!-- Teaching Method 3: Count On Strategy -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 3: Count On Strategy! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Teach the efficient "count on" method for addition.
+      </div>
+
+      <h2>Why Count On?</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>Instead of counting from 1 every time, we start with the bigger number and count on. This saves time and builds number sense!</p>
+        <p><strong>Example:</strong> For 7 + 3, start at 7 and count "8, 9, 10" instead of counting all the way from 1.</p>
+      </div>
+
+      <h2>Step-by-Step Method</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>1. Find the bigger number:</strong> "Which is bigger, 6 or 2? Circle the 6!"</p>
+        <p><strong>2. Put it in your head:</strong> "Put 6 in your head" (tap your head)</p>
+        <p><strong>3. Count on:</strong> "Now count on 2 more: 7, 8!"</p>
+        <p><strong>4. The answer:</strong> "6 + 2 = 8"</p>
+      </div>
+
+      <h2>Teaching Tips</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p>✓ Use fingers to help count on</p>
+        <p>✓ Practice identifying the bigger number first</p>
+        <p>✓ Start with adding 1, 2, or 3 to larger numbers</p>
+        <p>✓ Make it physical: "Put 8 in your head, now count on your fingers"</p>
+        <p>✓ Celebrate when they remember to start with the bigger number!</p>
+      </div>
+
+      <h2>Common Challenges</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p><strong>If your child always starts counting from 1:</strong></p>
+        <p>• Practice just identifying bigger numbers first</p>
+        <p>• Use a number line to show the starting point</p>
+        <p>• Say "Don't start at 1, start at the bigger number!"</p>
+        <p>• Model the strategy repeatedly with enthusiasm</p>
+      </div>
     </div>
 
     <!-- Worksheet 4: Number Line -->
     <div class="page">
       <h1>Worksheet 4: Number Line Jumps! 🦘</h1>
+      <div class="appreciation">
+        Wonderful job, <span class="child-name">___</span>! Let's jump on numbers! 🦘
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Start at the first number, then jump
         forward to add!
@@ -526,11 +770,62 @@
         <p>9 - 3 = ____ (Start at 9, jump back 3)</p>
         <p>4 + 4 = ____ (Start at 4, jump forward 4)</p>
       </div>
+      <div class="appreciation" style="margin-top: 15px;">
+        Fantastic jumping, <span class="child-name">___</span>! You're a number line expert! 🎆
+      </div>
+    </div>
+
+    <!-- Teaching Method 4: Number Line Strategy -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 4: Number Line Jumps! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Help children visualize math using number lines.
+      </div>
+
+      <h2>Why Use Number Lines?</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>Number lines help children see numbers as positions and movements. This builds a strong foundation for understanding math concepts visually.</p>
+        <p><strong>Key idea:</strong> Addition means jumping forward, subtraction means jumping backward.</p>
+      </div>
+
+      <h2>Step-by-Step Method</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>For Addition (5 + 3):</strong></p>
+        <p>1. Find 5 on the number line and point to it</p>
+        <p>2. Jump forward 3 spaces: "6, 7, 8"</p>
+        <p>3. Where you land is your answer: 8</p>
+        <br>
+        <p><strong>For Subtraction (7 - 2):</strong></p>
+        <p>1. Find 7 on the number line and point to it</p>
+        <p>2. Jump backward 2 spaces: "6, 5"</p>
+        <p>3. Where you land is your answer: 5</p>
+      </div>
+
+      <h2>Making It Physical</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p>✓ Draw number lines on the floor with chalk</p>
+        <p>✓ Let children physically hop on the numbers</p>
+        <p>✓ Use toy cars or animals to "drive" along the line</p>
+        <p>✓ Point with your finger and make jumping sounds</p>
+        <p>✓ Count out loud with each jump</p>
+      </div>
+
+      <h2>Common Mistakes</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p><strong>If your child:</strong></p>
+        <p>• Jumps the wrong direction → Use arrows to show forward/backward</p>
+        <p>• Loses count → Go slower, point to each number</p>
+        <p>• Starts at the wrong number → Double-check the starting position</p>
+        <p>• Gets confused → Practice with smaller numbers first</p>
+      </div>
     </div>
 
     <!-- Worksheet 5: Doubles -->
     <div class="page">
       <h1>Worksheet 5: Doubles Are Fun! 👯</h1>
+      <div class="appreciation">
+        <span class="child-name">___</span>, you're doing fantastic! Double the fun! 👯
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Learn these doubles by heart! They're
         like magic numbers!
@@ -578,11 +873,52 @@
           <p>4 + 4 = 8, so 4 + 5 = ____</p>
         </div>
       </div>
+      <div class="appreciation" style="margin-top: 15px;">
+        Brilliant work with doubles, <span class="child-name">___</span>! You're amazing! ✨
+      </div>
+    </div>
+
+    <!-- Teaching Method 5: Doubles Strategy -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 5: Doubles Magic! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Help children memorize doubles and use them as building blocks.
+      </div>
+
+      <h2>Why Learn Doubles?</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>Doubles are the foundation for many other math facts. Once children know doubles, they can easily figure out "near doubles" like 5 + 6 (one more than 5 + 5).</p>
+        <p><strong>Goal:</strong> Make doubles automatic and instant!</p>
+      </div>
+
+      <h2>Teaching Doubles Step-by-Step</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>1. Start with hands:</strong> Show two hands with same number of fingers</p>
+        <p><strong>2. Use visual patterns:</strong> "3 + 3 looks like butterfly wings!"</p>
+        <p><strong>3. Create memory tricks:</strong> "Double 4 is great, makes 8!"</p>
+        <p><strong>4. Practice daily:</strong> Quick 2-minute drills</p>
+      </div>
+
+      <h2>Memory Tricks</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p>• 2 + 2 = 4 (Two plus two is four, for sure!)</p>
+        <p>• 4 + 4 = 8 (Four plus four is eight, that's great!)</p>
+        <p>• 5 + 5 = 10 (Five plus five is ten, my friend!)</p>
+      </div>
+
+      <h2>Near Doubles & Activities</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p><strong>Near doubles:</strong> If 6 + 6 = 12, then 6 + 7 = 13 (one more!)</p>
+        <p><strong>Fun activities:</strong> Mirror fingers, doubles dance, snap & answer</p>
+      </div>
     </div>
 
     <!-- Worksheet 6: Making 10 -->
     <div class="page">
       <h1>Worksheet 6: Making 10! 🔟</h1>
+      <div class="appreciation">
+        Super work, <span class="child-name">___</span>! You're almost there! 🔟
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Fill the ten frame to make 10, then add
         what's left!
@@ -640,11 +976,53 @@
           <p>So: 10 + ___ = ___</p>
         </div>
       </div>
+      <div class="appreciation" style="margin-top: 15px;">
+        You're mastering making 10, <span class="child-name">___</span>! So proud of you! 🌟
+      </div>
+    </div>
+
+    <!-- Teaching Method 6: Making 10 Strategy -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 6: Making 10 Strategy! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Teach the powerful "make 10" strategy for addition.
+      </div>
+
+      <h2>Why Make 10?</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>Making 10 first makes addition much easier! Children learn to break apart numbers to create friendly tens, then add what's left.</p>
+        <p><strong>Example:</strong> 8 + 5 → 8 + 2 + 3 → 10 + 3 = 13</p>
+      </div>
+
+      <h2>Step-by-Step Teaching</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>For 8 + 5:</strong></p>
+        <p>1. "8 needs 2 more to make 10"</p>
+        <p>2. "Take 2 from the 5: 5 = 2 + 3"</p>
+        <p>3. "Now we have 8 + 2 + 3"</p>
+        <p>4. "8 + 2 = 10, and 10 + 3 = 13"</p>
+      </div>
+
+      <h2>Prerequisites & Ten Frames</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p><strong>Must know:</strong> Number bonds to 10 (9+1, 8+2, 7+3)</p>
+        <p><strong>Ten frames:</strong> Fill frame, take from second number, add remainder to 10</p>
+      </div>
+
+      <h2>Practice Order</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p>• Start with 9 + any (easiest)</p>
+        <p>• Then 8 + numbers, 7 + numbers, 6 + numbers</p>
+        <p><strong>Remember:</strong> Always start with the larger number!</p>
+      </div>
     </div>
 
     <!-- Worksheet 7: Mixed Practice -->
     <div class="page">
       <h1>Worksheet 7: Let's Practice Everything! 🌈</h1>
+      <div class="appreciation">
+        Incredible progress, <span class="child-name">___</span>! Show what you've learned! 🌈
+      </div>
       <div class="instructions">
         <strong>Instructions:</strong> Use any method you like to solve these
         problems!
@@ -747,8 +1125,45 @@
       </div>
 
       <div style="text-align: center; margin-top: 30px">
-        <h2 style="color: #ffd700">⭐ Great Job! ⭐</h2>
-        <p>You're becoming a math star!</p>
+        <h2 style="color: #ffd700">⭐ Great Job, <span class="child-name">___</span>! ⭐</h2>
+        <p><span class="child-name">___</span>, you're becoming a math superstar! 🌟</p>
+        <p style="font-size: 20px; color: #4caf50; margin-top: 10px;">We're so proud of you! 🎉</p>
+      </div>
+    </div>
+
+    <!-- Teaching Method 7: Mixed Practice Strategies -->
+    <div class="page teaching-page">
+      <h1>Teaching Method 7: Bringing It All Together! 🎓</h1>
+      <div class="instructions">
+        <strong>For Parents and Teachers:</strong> Help children choose the best strategy for each problem.
+      </div>
+
+      <h2>Strategy Selection</h2>
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p>At this stage, children should learn to choose the most efficient strategy for each problem:</p>
+        <p><strong>The goal:</strong> Develop flexible thinking and strategy selection skills.</p>
+      </div>
+
+      <h2>Which Strategy to Use?</h2>
+      <div style="background-color: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Doubles:</strong> 4 + 4, 6 + 6, 7 + 7 (memorized)</p>
+        <p><strong>Near Doubles:</strong> 5 + 6, 7 + 8 (one more than double)</p>
+        <p><strong>Count On:</strong> 8 + 2, 9 + 1 (small second number)</p>
+        <p><strong>Make 10:</strong> 7 + 5, 8 + 6 (larger numbers)</p>
+        <p><strong>Count Back:</strong> 10 - 2, 8 - 1 (small subtraction)</p>
+      </div>
+
+      <h2>Building Confidence</h2>
+      <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px;">
+        <p><strong>Ask:</strong> "What strategy did you use?" "Is there a faster way?"</p>
+        <p><strong>Do:</strong> Celebrate all strategies, practice daily, connect to real life</p>
+      </div>
+
+      <h2>Signs of Mastery</h2>
+      <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px;">
+        <p>✓ Solves facts within 3 seconds</p>
+        <p>✓ Chooses strategies independently</p>
+        <p>✓ Explains thinking clearly</p>
       </div>
     </div>
   </body>
